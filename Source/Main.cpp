@@ -1,9 +1,13 @@
 /*
   ==============================================================================
 
-    This file was auto-generated!
-
-    It contains the basic startup code for a Juce application.
+   WaveSpecter
+ 
+ command-line utility for making spectrum plot thumbnails from audio files.
+ 
+ made very quickly by ezra buchla, october 2017
+ 
+ uses JUCE and kiss_fft
 
   ==============================================================================
 */
@@ -11,8 +15,6 @@
 #include <complex>
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "kissfft/kiss_fftr.h"
-
-
 
 void createImage(String outPath, AudioSampleBuffer& buf, int h) {
     
@@ -74,7 +76,7 @@ int main (int argc, char* argv[])
 {
     String inPath;
     String outPath;
-    int w, h;
+    int h;
     
     // 1st arg (required) : input path
     if(argc > 1) {
@@ -91,16 +93,9 @@ int main (int argc, char* argv[])
         outPath = inPath + ".png";
     }
     
-    // 3rd arg: image width
+    // 3rd arg: image height
     if(argc > 3) {
-        w = atoi(argv[3]);
-    } else {
-        w = 120;
-    }
-    
-    // 4th arg: image height
-    if(argc > 4) {
-        w = atoi(argv[4]);
+        h = atoi(argv[4]);
     } else {
         h = 80;
     }
