@@ -19,11 +19,12 @@ oh yeah - the output is always .png, doesn't matter what extension you put. (ha!
 
 frequency scale is logarithmic by default.  enter`lin` in the 3rd argument to use a linear scale instead. anything but `lin` results in log-scale output. (and it's case sensitive. ha!)
 
-the size of the DFT window is the number of samples in the input file< is, rounded up to the nearest even number.
+the size of the DFT window is the number of samples in the input file, rounded up to the nearest even number.
+
+the output image width is fixed at one pixel per frequency bin. so width = (samples rounded up ) / 2 + 1.
 
 output image height can be specified as a fourth argument (integer number of pixels, defaults to 80.)
 
-the output image width is fixed at one pixel per frequency bin. so width = (samples rounded up ) / 2 + 1.
 
 ## plot characteristics
 
