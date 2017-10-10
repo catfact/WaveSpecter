@@ -27,26 +27,27 @@ void createImage(String outPath, AudioSampleBuffer& buf, int h) {
     kiss_fft_scalar ksrc[n];
     kiss_fft_cpx spec[nfft/2+1];
     
-    // create and apply hann windowing function (raised cosine)
+    // create hann windowing function (raised cosine)
     float win[nfft];
     for(int i=0; i<nfft; ++i) {
         double t = 2.0 * M_PI * (double)i / (double)(nfft-1);
         double y = 0.5 - 0.5 * std::cos(t);
         win[i] = static_cast<float>(y);
     }
-    
+    // copy input and apply window
     for(int i=0; i<n; ++i) {
         ksrc[i] = src[i] * win[i];
     }
     
+    // add a zero at the end if we rounded up
     if(nfft > n) { ksrc[nfft-1] = 0.f; }
+    // run the fft
     kiss_fftr(cfg, ksrc, spec);
     
     // image width is fixed to FFT size
     Image img(Image::PixelFormat::RGB, nr, h, true);
     for(int x=0; x<nr; ++x) {
         float val = std::abs(std::complex<float>(spec[x].r, spec[x].i)) / (float)(nr);
-      std::cout << val << "\n";
         // convert to db
         val = 20.f * log10(val);
         val = 1.f - (val / -90.f);
@@ -95,7 +96,7 @@ int main (int argc, char* argv[])
     
     // 3rd arg: image height
     if(argc > 3) {
-        h = atoi(argv[4]);
+        h = atoi(argv[3]);
     } else {
         h = 80;
     }
