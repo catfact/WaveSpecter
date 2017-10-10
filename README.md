@@ -11,13 +11,15 @@ tested on macos only at the moment.
 
 ## usage
 
-`./wavespecter input [output] [height]`
+`./wavespecter input [output] [frequency scale] [height]`
 
-the size of the DFT window is the number of samples in the input file is rounded up to an even number.
+frequency scale is logarithmic by default.  enter`lin` in the 3rd argument to use a linear scale instead.
+
+the size of the DFT window is the number of samples in the input file< is, rounded up to the nearest even number.
+
+output image height can be specified as a third argument (integer number of pixels, defaults to 80.)
 
 the output image width is fixed at one pixel per frequency bin. so width = (samples rounded up ) / 2 + 1.
-
-output image height can be specified as a third argument, defaults to 80px.
 
 ## plot characteristics
 
