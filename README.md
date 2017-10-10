@@ -1,10 +1,10 @@
 # WaveSpecter
 
-this is a smal command-line utility to make spectrum plot thumbnails from audio files.
+this is a small command-line utility to make spectrum plot thumbnails from audio files.
 
 it is written in C++,
 uses JUCE for build framework, audio reading, and image writing,
-uses kiss_fft for FFT.
+uses kiss\_fft for FFT.
 
 tested on macos only at the moment.
 
