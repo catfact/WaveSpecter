@@ -17,7 +17,7 @@ the size of the DFT window is the number of samples in the input file is rounded
 
 the output image width is fixed at one pixel per frequency bin. so width = (samples rounded up ) / 2 + 1.
 
-output image height can be specified as a third
+output image height can be specified as a third argument, defaults to 80px.
 
 ## plot characteristics
 
