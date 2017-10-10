@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="phOCfm" name="WaveSpecter" displaySplashScreen="1" reportAppUsage="1"
+              splashScreenColour="Dark" projectType="consoleapp" version="1.0.0"
+              bundleIdentifier="com.catfact.WaveSpecter" includeBinaryInAppConfig="1"
+              cppLanguageStandard="11" jucerVersion="5.1.1">
+  <MAINGROUP id="FAbRIF" name="WaveSpecter">
+    <GROUP id="{4C6196A3-D239-ABBB-CF88-1A49DF34C76A}" name="Source">
+      <GROUP id="{33CDFA31-FC9A-5250-CD5F-F5665A891AD9}" name="kissfft">
+        <FILE id="P4qA4J" name="_kiss_fft_guts.h" compile="0" resource="0"
+              file="Source/kissfft/_kiss_fft_guts.h"/>
+        <FILE id="AkLKbg" name="kiss_fft.c" compile="1" resource="0" file="Source/kissfft/kiss_fft.c"/>
+        <FILE id="HNkJ0G" name="kiss_fft.h" compile="0" resource="0" file="Source/kissfft/kiss_fft.h"/>
+        <FILE id="jYsRZn" name="kiss_fftr.c" compile="1" resource="0" file="Source/kissfft/kiss_fftr.c"/>
+        <FILE id="PONG24" name="kiss_fftr.h" compile="0" resource="0" file="Source/kissfft/kiss_fftr.h"/>
+        <FILE id="ocVFZi" name="kissfft.hh" compile="0" resource="0" file="Source/kissfft/kissfft.hh"/>
+      </GROUP>
+      <FILE id="cUmOrf" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="wavespecter"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="wavespecter"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_events" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_video" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../src/JUCE-5.1/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2017 targetFolder="Builds/VisualStudio2017">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="1" optimisation="1" targetName="wavespecter"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="0" optimisation="3" targetName="wavespecter"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_events" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_video" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../src/JUCE-5.1/modules"/>
+      </MODULEPATHS>
+    </VS2017>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="wavespecter"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="wavespecter"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_events" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_video" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../src/JUCE-5.1/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../src/JUCE-5.1/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
