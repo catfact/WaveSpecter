@@ -1,10 +1,10 @@
 # WaveSpecter
 
-this is a smal command-line utility to make spectrum plot thumbnails from audio files.
+this is a small command-line utility to make spectrum plot thumbnails from audio files.
 
 it is written in C++,
 uses JUCE for build framework, audio reading, and image writing,
-uses kiss_fft for FFT.
+uses kiss\_fft for FFT.
 
 tested on macos only at the moment.
 
@@ -17,7 +17,7 @@ the size of the DFT window is the number of samples in the input file is rounded
 
 the output image width is fixed at one pixel per frequency bin. so width = (samples rounded up ) / 2 + 1.
 
-output image height can be specified as a third
+output image height can be specified as a third argument, defaults to 80px.
 
 ## plot characteristics
 
