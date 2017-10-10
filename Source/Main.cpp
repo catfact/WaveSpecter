@@ -20,22 +20,35 @@ void createImage(String outPath, AudioSampleBuffer& buf, int h) {
     
     int n = buf.getNumSamples();
     int nfft = n&1 ? n+1 : n; // must be even
+    int nr = nfft/2+1; // number of real frequency bands
     kiss_fftr_cfg cfg = kiss_fftr_alloc(static_cast<int>(nfft), false, NULL, NULL);
     kiss_fft_scalar ksrc[n];
     kiss_fft_cpx spec[nfft/2+1];
-    for(int i=0; i<n; ++i) { ksrc[i] = src[i]; }
+    
+    // create and apply hann windowing function (raised cosine)
+    float win[nfft];
+    for(int i=0; i<nfft; ++i) {
+        double t = 2.0 * M_PI * (double)i / (double)(nfft-1);
+        double y = 0.5 - 0.5 * std::cos(t);
+        win[i] = static_cast<float>(y);
+    }
+    
+    for(int i=0; i<n; ++i) {
+        ksrc[i] = src[i] * win[i];
+    }
+    
     if(nfft > n) { ksrc[nfft-1] = 0.f; }
     kiss_fftr(cfg, ksrc, spec);
     
     // image width is fixed to FFT size
-    Image img(Image::PixelFormat::RGB, nfft, h, true);
-    for(int x=0; x<nfft; ++x) {
-        float val = std::abs(std::complex<float>(spec[x].r, spec[x].i));
+    Image img(Image::PixelFormat::RGB, nr, h, true);
+    for(int x=0; x<nr; ++x) {
+        float val = std::abs(std::complex<float>(spec[x].r, spec[x].i)) / (float)(nr);
+      std::cout << val << "\n";
         // convert to db
         val = 20.f * log10(val);
         val = 1.f - (val / -90.f);
         val = std::min(1.f, std::max(0.f, val));
-        std::cout << val << "\n";
         const int y = (int)(val * h);
         int j = 0;
         while(j < h) {
@@ -92,7 +105,6 @@ int main (int argc, char* argv[])
         h = 80;
     }
     File inFile = File::getCurrentWorkingDirectory().getChildFile(inPath);
-    //File inFile(inPath);
     AudioSampleBuffer buf;
     AudioFormatManager formatManager;
     formatManager.registerBasicFormats();
