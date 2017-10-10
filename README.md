@@ -13,20 +13,20 @@ tested on macos only at the moment.
 
 `./wavespecter input [output] [frequency scale] [height]`
 
-frequency scale is logarithmic by default.  enter`lin` in the 3rd argument to use a linear scale instead.
+in the absence of an output filename, `.png` will be appended to the input filename.
+
+oh yeah - the output is always .png, doesn't matter what extension you put. (ha!)
+
+frequency scale is logarithmic by default.  enter`lin` in the 3rd argument to use a linear scale instead. anything but `lin` results in log-scale output. (ha!)
 
 the size of the DFT window is the number of samples in the input file< is, rounded up to the nearest even number.
 
-output image height can be specified as a third argument (integer number of pixels, defaults to 80.)
+output image height can be specified as a fourth argument (integer number of pixels, defaults to 80.)
 
 the output image width is fixed at one pixel per frequency bin. so width = (samples rounded up ) / 2 + 1.
 
 ## plot characteristics
 
 - amplitudes are plotted on a decibel scale with a -90dB floor.
-- frequency scale is linear from DC - Nyquist.
-
-## TODO
-- make frequency scale logarithmic.
-
+- frequency range from DC - Nyquist. for log scaling, the first non-zero entry is the same as for the linear scale (nyquist / num bands,) and the zero entry is still zero. 
 
