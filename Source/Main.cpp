@@ -81,7 +81,7 @@ void exportPlotImage(String outPath, AudioSampleBuffer& buf, int h, freq_mode_t 
     int nr = nfft/2+1; // number of real frequency bands
     kiss_fftr_cfg cfg = kiss_fftr_alloc(static_cast<int>(nfft), false, NULL, NULL);
     kiss_fft_scalar ksrc[n];
-    kiss_fft_cpx spec[nfft/2+1];
+    kiss_fft_cpx spec[nr];
     
     // create hann windowing function (raised cosine)
     float win[nfft];
