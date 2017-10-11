@@ -135,7 +135,7 @@ void exportPlotImage(String outPath, AudioSampleBuffer& buf, int h, freq_mode_t 
         }
     }
     
-    // rescale the image to the requested height and write it to disk
+    // write image to disk
     File outFile = File::getCurrentWorkingDirectory().getChildFile(outPath);
     FileOutputStream stream (outFile);
     PNGImageFormat pngWriter;
